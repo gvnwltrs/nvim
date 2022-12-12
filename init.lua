@@ -33,7 +33,7 @@ vim.g.mapleader = " "
 
 vim.api.nvim_set_keymap('i', 'jk', '<ESC>', {noremap = true})
 
-vim.o.relativenumber = true
+vim.o.relativenumber = false
 
 -- Packer Plugin Setup
 local vim = vim
