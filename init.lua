@@ -29,8 +29,8 @@ vim.wo.signcolumn = 'yes'
 vim.wo.wrap = false
 
 -- Simple Key Bindings 
-vim.g.mapleader = " "
---vim.g.mapleader = ","
+--vim.g.mapleader = " "
+vim.g.mapleader = ','
 
 vim.api.nvim_set_keymap('i', 'jk', '<ESC>', {noremap = true})
 --vim.api.nvim_set_keymap('n', 'm', ':NvimTreeToggle<CR>', {noremap = true})
@@ -40,8 +40,12 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {noremap = true})
-vim.api.nvim_set_keymap('n', '<C-space>', ':bnext<CR>', {noremap = true})
+--vim.api.nvim_set_keymap('n', '<C-/>', ':bnext<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-n>', ':bnext<CR>', {noremap = true})
+--vim.api.nvim_set_keymap('n', '<C-space>', ':bprev<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-p>', ':bprev<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-b>', ':BufDel<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap = true})
 --vim.api.nvim_set_keymap('n', '<C-Tab>', ':BufferLineCycleNext<CR>', {noremap = true})
 
 vim.o.relativenumber = false
