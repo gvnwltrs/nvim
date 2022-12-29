@@ -1,5 +1,3 @@
--- Defaults 
---local api = vim.api
 --local g = vim.g
 --local opt = vim.opt
 --local cmd = vim.cmd
@@ -46,6 +44,7 @@ vim.api.nvim_set_keymap('n', '<C-n>', ':bnext<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-p>', ':bprev<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-b>', ':BufDel<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>j', ':Telescope jumplist<CR>', {noremap = true})
 --vim.api.nvim_set_keymap('n', '<C-Tab>', ':BufferLineCycleNext<CR>', {noremap = true})
 
 vim.o.relativenumber = false
@@ -124,6 +123,10 @@ packer.startup(function()
     requires = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
+    update_focused_file = {
+      enable = true,
+      update_cwd = true,
+    },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
@@ -136,6 +139,7 @@ packer.startup(function()
 
   -- empty setup using defaults
   --require("nvim-tree").setup()
+  --vim.g.nvim_tree_respect_buf_cwd = 1
 
   -- OR setup with some options
   require("nvim-tree").setup({
@@ -221,6 +225,20 @@ packer.startup(function()
     next = 'tabs',  -- or 'cycle, 'alternate'
     quit = true,    -- quit Neovim when last buffer is closed
   }
+
+  -- LSP 
+  use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+
+  -- Autocomplete
+  use {'neoclide/coc.nvim', branch = 'release'} -- use 'C-y' to select suggestions 
+
+  -- diffView
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  -- nvim-comment
+  use "terrortylor/nvim-comment"
+  require('nvim_comment').setup()
+
 
   -- DO NOT ADD ANYTHING BELOW HERE!!
 
