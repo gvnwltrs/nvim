@@ -45,6 +45,8 @@ vim.api.nvim_set_keymap('n', '<C-p>', ':bprev<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<C-b>', ':BufDel<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope find_files<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>j', ':Telescope jumplist<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>t', ':Telescope treesitter<CR>', {noremap = true})
+vim.api.nvim_set_keymap('n', '<Leader>s', ':/\\c', {noremap = true})
 --vim.api.nvim_set_keymap('n', '<C-Tab>', ':BufferLineCycleNext<CR>', {noremap = true})
 
 vim.o.relativenumber = false
