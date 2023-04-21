@@ -269,6 +269,7 @@ packer.startup(function()
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end}
+  use 'voldikss/vim-floaterm'
 
   -- Debugging 
 
@@ -283,9 +284,13 @@ packer.startup(function()
   
   -- Split and Window 
 
+  -- Utility
+
   -- Game
   
   -- Web Search
+  use 'voldikss/vim-browser-search'
+
   -- ChatGPT 
 
   -- DO NOT ADD ANYTHING BELOW HERE!!
