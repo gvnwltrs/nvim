@@ -45,11 +45,12 @@ vim.api.nvim_set_keymap('n', '<Leader>j', ':Telescope jumplist<CR>', {noremap = 
 vim.api.nvim_set_keymap('n', '<Leader>t', ':Telescope treesitter<CR>', {noremap = true})
 vim.api.nvim_set_keymap('n', '<Leader>s', ':/\\c', {noremap = true})
 --vim.api.nvim_set_keymap('n', '<C-Tab>', ':BufferLineCycleNext<CR>', {noremap = true})
+vim.api.nvim_set_keymap('t', '<ESC>', [[<C-\><C-n>]], {noremap = true})
 
 vim.o.relativenumber = false
 
 -- Colorscheme
-vim.cmd[[colorscheme tokyonight]]
+--vim.cmd[[colorscheme tokyonight]]
 
 -- Packer Plugin Setup
 local vim = vim
@@ -68,12 +69,15 @@ packer.init({
   package_root = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack')
 })
 
---- Configure Packer Plugins 
+
+--- Plugin Manager 
 packer.startup(function()
   local use = use
 
   -- add you plugins here like:
   -- use 'neovim/nvim-lspconfig'
+
+  -- Color 
 
   -- Colorschemes 
   use 'folke/tokyonight.nvim'
@@ -100,7 +104,7 @@ packer.startup(function()
     default = true;
   }
   
-  --- Treesitter
+  --- Syntax 
   use {'nvim-treesitter/nvim-treesitter'}
 
   -- Status Line
@@ -116,7 +120,7 @@ packer.startup(function()
     }
   }
 
-  --- NVIM Tree
+  --- File Explorer 
   use {
     'nvim-tree/nvim-tree.lua',
     requires = {
@@ -142,7 +146,6 @@ packer.startup(function()
 
   -- OR setup with some options
   require("nvim-tree").setup({
-    open_on_setup = true,
     sort_by = "case_sensitive",
     view = {
       side = "left",
@@ -163,25 +166,32 @@ packer.startup(function()
     },
   })
 
-  -- Bufferline 
+  -- Buffer Handlers (Tabline) 
   -- using packer.nvim
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
   require("bufferline").setup{}
 
-
-  -- Which-key 
-  use {
-  "folke/which-key.nvim",
-  config = function()
-      require("which-key").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-      }
-    end
+  -- Buffers Delete
+  use {'ojroques/nvim-bufdel'}
+  require('bufdel').setup {
+    next = 'tabs',  -- or 'cycle, 'alternate'
+    quit = true,    -- quit Neovim when last buffer is closed
   }
 
-  -- Telescope
+
+  -- Keybinding
+ -- use {
+ -- "folke/which-key.nvim",
+ -- config = function()
+ --     require("which-key").setup {
+ --     -- your configuration comes here
+ --     -- or leave it empty to use the default settings
+ --     -- refer to the configuration section below
+ --     }
+ --   end
+ -- }
+
+  -- Fuzzy Finder 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     -- or                            , branch = '0.1.x',
@@ -218,25 +228,54 @@ packer.startup(function()
     }
   }
 
-  -- Bufdel
-  use {'ojroques/nvim-bufdel'}
-  require('bufdel').setup {
-    next = 'tabs',  -- or 'cycle, 'alternate'
-    quit = true,    -- quit Neovim when last buffer is closed
-  }
-
   -- LSP 
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
 
   -- Autocomplete
   use {'neoclide/coc.nvim', branch = 'release'} -- use 'C-y' to select suggestions 
 
-  -- diffView
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  -- Programming Language Support
+  -- Snippets 
+  -- Marks 
+  -- Search 
 
-  -- nvim-comment
+  -- Comment 
   use "terrortylor/nvim-comment"
   require('nvim_comment').setup()
+
+  -- Dashboards 
+  use {
+    'goolord/alpha-nvim',
+    config = function ()
+        require'alpha'.setup(require'alpha.themes.dashboard'.config)
+    end
+  }
+
+  -- Mouse
+  
+  -- Editing Support
+  
+  -- Formatting 
+  
+  -- Indent
+
+  -- Notes 
+ 
+  -- Terminal Integration
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
+
+  -- Debugging 
+  -- Test
+  -- Code Runner 
+  -- Git  
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  -- Remote Development
+  -- Split and Window 
+  -- Game
+  --
 
 
   -- DO NOT ADD ANYTHING BELOW HERE!!
