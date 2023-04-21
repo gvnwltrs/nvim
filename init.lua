@@ -236,8 +236,11 @@ packer.startup(function()
   use {'neoclide/coc.nvim', branch = 'release'} -- use 'C-y' to select suggestions 
 
   -- Programming Language Support
+
   -- Snippets 
+
   -- Marks 
+
   -- Search 
 
   -- Comment 
@@ -268,14 +271,22 @@ packer.startup(function()
   end}
 
   -- Debugging 
+
   -- Test
+
   -- Code Runner 
+
   -- Git  
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Remote Development
+  
   -- Split and Window 
+
   -- Game
+  
+  -- Web Search
+  -- ChatGPT 
 
   -- DO NOT ADD ANYTHING BELOW HERE!!
 
