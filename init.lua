@@ -1,6 +1,7 @@
 --local g = vim.g
 --local opt = vim.opt
 --local cmd = vim.cmd
+-- vim.g.terminal_command = "terminator"
 vim.opt.mouse = "a"
 vim.opt.clipboard = 'unnamedplus'
 vim.o.termguicolors = true
