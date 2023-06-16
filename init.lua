@@ -51,6 +51,7 @@ vim.o.relativenumber = false
 
 -- Colorscheme
 --vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme dracula]]
 
 -- Packer Plugin Setup
 local vim = vim
@@ -80,7 +81,8 @@ packer.startup(function()
   -- Color 
 
   -- Colorschemes 
-  use 'folke/tokyonight.nvim'
+  --use 'folke/tokyonight.nvim'
+  use 'Mofiqul/dracula.nvim'
 
   --- Dev Icons 
   use 'nvim-tree/nvim-web-devicons'
