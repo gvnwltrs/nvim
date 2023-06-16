@@ -1,7 +1,6 @@
 --local g = vim.g
 --local opt = vim.opt
 --local cmd = vim.cmd
--- vim.g.terminal_command = "terminator"
 vim.opt.mouse = "a"
 vim.opt.clipboard = 'unnamedplus'
 vim.o.termguicolors = true
@@ -151,7 +150,7 @@ packer.startup(function()
     view = {
       side = "left",
       width = 30,
-      adaptive_size = true,
+      adaptive_size = false,
       mappings = {
         list = {
           { key = "u", action = "dir_up" },
@@ -236,11 +235,8 @@ packer.startup(function()
   use {'neoclide/coc.nvim', branch = 'release'} -- use 'C-y' to select suggestions 
 
   -- Programming Language Support
-
   -- Snippets 
-
   -- Marks 
-
   -- Search 
 
   -- Comment 
@@ -269,7 +265,6 @@ packer.startup(function()
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end}
-  use 'voldikss/vim-floaterm'
 
   -- Debugging 
 
@@ -281,17 +276,16 @@ packer.startup(function()
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
   -- Remote Development
-  
+
   -- Split and Window 
 
-  -- Utility
-
   -- Game
-  
-  -- Web Search
-  use 'voldikss/vim-browser-search'
 
-  -- ChatGPT 
+  -- Web Search
+  
+  -- AI Tools
+
+  -- Docker 
 
   -- DO NOT ADD ANYTHING BELOW HERE!!
 
